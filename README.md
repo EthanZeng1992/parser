@@ -64,13 +64,13 @@ end while @user != nil
 
 ## xls2csv 
 
-Convert excel to csv
+xls2csv.sh: Convert excel to csv
 
 ```ruby
-gem install roo 
+$ gem install roo 
 
-change "path_to_xls" and "path_to_save_csv" in xls2csv.sh to your own file path.
+change "path_to_xls" and "path_to_save_csv" to your own file path.
 
-chmod +x xls2csv.sh
-./xls2csv.sh
+$ chmod +x xls2csv.sh
+$ ./xls2csv.sh
 ```
