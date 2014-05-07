@@ -5,7 +5,7 @@ It use ruby class **[csv](http://ruby-doc.org/stdlib-1.9.2/libdoc/csv/rdoc/CSV.h
 
 This class provides a complete interface to CSV files and data. It offers tools to enable you to read and write to and from Strings or IO objects, as needed.
 
-## Usage:
+## Usage
 
 ```ruby
 require "parser"
@@ -61,3 +61,22 @@ begin
   @user = @csv.user
 end while @user != nil
 ```
+
+## xls2csv 
+
+Convert excel to csv
+
+### Installation
+
+  gem install roo 
+
+### Usage 
+
+#### notice 
+
+change "path_to_xls" and "path_to_save_csv" in xls2csv.sh to your own file path.
+
+#### then 
+
+  chmod +x xls2csv.sh
+  ./xls2csv.sh
