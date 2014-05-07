@@ -3,7 +3,6 @@ class Parser
   require 'csv'
   attr_reader :csv
 
-  @@users = [] 
   @@user_shift   = 0
   @@course_shift = 5
 
@@ -13,18 +12,20 @@ class Parser
   #-----------------------------------------------------------------------------------
   def initialize(csv)
     @csv = CSV.open("#{csv}") 
+    2.times { @csv.shift }
   end
 
   #-----------------------------------------------------------------------------------
-   def users 
-     2.times { csv.shift }
-     csv.each do |row|
-       break if row[0] == nil 
-       @@users << User.new(row[1], row[7], row[11], courses)
-       @@user_shift.times { csv.shift }
-     end
-     @@users
-   end
+  def user 
+    user = nil
+    csv.each do |row|
+      break if row[0] == nil 
+      user = User.new(row[1], row[7], row[11], courses)
+      @@user_shift.times { csv.shift }
+      break
+    end
+    user
+  end
   
   #-----------------------------------------------------------------------------------
   def courses 
