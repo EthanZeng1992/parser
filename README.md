@@ -17,6 +17,10 @@ user = csv.user
 # return structure like :
 user: { 
   studentid: '1', name: 'user-1', idnumber: '1',
+  organizations: [
+    { name: '2012春法学本城中', description: '' } 
+    { name: '法学', description: '090901203010100' } 
+  ],
   courses: [
     { number: '1', name: 'course-1', score: '90' } 
     { number: '2', name: 'course-2', score: '80' } 
@@ -37,7 +41,15 @@ begin
     name:      @user.name,
     idnumber:  @user.idnumber
   )
-  
+
+  @user.organizations.each do |organization|
+    Organization.create(
+      name:        organization.name,
+      description: organization.description,
+      user_id:     user.id
+    )
+  end
+
   @user.courses.each do |course|
     Course.create(
       number:  course.number,
